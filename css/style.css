@@ -1,0 +1,31 @@
+body {
+  background: url("/img/farm.webp") no-repeat center center fixed;
+  background-size: cover;
+  }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width:750px;
+  height:500px;
+  justify-content: space-around;
+  }
+
+.hole {
+border: solid pink 1px;
+height:100px;
+width:200px;
+border-radius: 50%;
+background-color: brown;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:black solid 2px;
+
+}
+#timer{
+  text-align: center;
+  border:solid pink 1px;
+  margin-top:10%;
+}
