@@ -1,6 +1,8 @@
 body {
   background: url("/img/farm.webp") no-repeat center center fixed;
   background-size: cover;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
   }
 .grid {
   display: flex;
@@ -24,8 +26,51 @@ background-color: brown;
   border:black solid 2px;
 
 }
-#timer{
+/* #timer{
   text-align: center;
   border:solid pink 1px;
   margin-top:10%;
+} */
+#totoroimg{
+  max-height:120px;
+  width:auto;
+  }
+h1 {
+  font-size: 50px;
+}
+.players{
+  display: flex;
+  justify-content: space-around;
+  border:solid pink 1px;
+}
+.player, #start{
+  height:50px;
+  width:250px;
+  border:solid pink 1px;
+  background-color: white;
+  border-radius: 50%;
+  padding-top: 30px;
+  text-align: center;
+  margin:auto;
+}
+.display_container{
+  color:yellow;
+  font-size: 30px;
+  padding:40px;
+  display: flex;
+  justify-content: center;
+  border:solid red 2px;
+}
+.display{
+border:solid orange 2px;
+background-color: green;
+padding-right: 50px;
+padding-bottom: 15px;
+margin-right: 20px;
+}
+#hammerimg,#timerimg {
+  max-height: 50px;
+  width: auto;
+  padding-left: 10px;
+  /* border:solid purple 2px; */
 }
