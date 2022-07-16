@@ -15,12 +15,30 @@ const arrow2=document.querySelector("#arrow2")
 let hitHole=null
 let timeIDMoveMole=null
 let timeIDCountDown=null
-let timer1=10
-let timer2=10
-let currentScore=0
 
-//game logic
-
+class player{
+  constructor(timer,currentScore){
+    this.timer=timer
+    this.currentScore=currentScore
+  }
+  hitMole(){
+    holes.forEach(hole=> {
+        hole.addEventListener("click",
+        ()=>{
+          if(hole.id===hitHole){
+            this.currentScore++
+            score.innerText=this.currentScore
+            hole.classList.remove("mole")//if a mole got hit, remove img
+            hitHole=null
+          }
+        }
+      )
+    }
+  )
+  }
+}
+const player1= new player(10,0)
+const player2= new player(10,0)
   //create function to select random hole for mole to appear
 function randomHole(){
     //make sure no mole class was added to any hole
@@ -36,71 +54,36 @@ function randomHole(){
   function moveMole(){
   timeIDMoveMole=setInterval(randomHole,2000)
   }
-  //hit the Mole (randomHole ID=the hole where user clicked)
-holes.forEach(hole=> {
-    hole.addEventListener("click",
-    ()=>{
-      if(hole.id===hitHole){
-        currentScore++
-        score.innerText=currentScore
-        console.log(currentScore)
-        hole.classList.remove("mole")//if a mole got hit, remove img
-        hitHole=null
-      }
-    }
-  )
-})
+
   //create timer function
-  function countDown1(){
-  timer--
-  if(timer<=0){
+  function countDown(newPlayer){
+  newPlayer.timer--
+  console.log(newPlayer.timer)
+  if(newPlayer.timer<=0){
     clearInterval(timeIDCountDown)
     clearInterval(timeIDMoveMole)
     alert("time is up")
     second.innerText="00"
-    player1score.innerText="Final Score: "+currentScore
-    arrow1.src="img/arrowplaceholder.png"
-    arrow2.src="img/arrow.png"
-    // arrow1.remove()
-    // arrow2.src="img/arrow.png"
+    player1score.innerText="Final Score: "+newPlayer.currentScore//how to add newplayer in this
+
   }else
   if(timer>0 && timer<10){
-    second.innerText="0"+timer
+    second.innerText="0"+newPlayer.timer
   }else{
-    second.innerText=timer
+    second.innerText=newPlayer.timer
   }
 }
 //start timer
-  function startTimer1(){
-  timeIDCountDown=setInterval(countDown1,1000)
+  function startTimer(){
+  timeIDCountDown=setInterval(countDown,1000)
   }
-  //create timer function
-  function countDown2(){
-  timer--
-  if(timer<=0){
-    clearInterval(timeIDCountDown)
-    clearInterval(timeIDMoveMole)
-    alert("time is up")
-    second.innerText="00"
-    player2score.innerText="Final Score: "+currentScore
-    arrow2.src="img/arrowplaceholder.png"
-    arrow1.src="img/arrow.png"
-    // arrow1.remove()
-    // arrow2.src="img/arrow.png"
-  }else
-  if(timer>0 && timer<10){
-    second.innerText="0"+timer
-  }else{
-    second.innerText=timer
-  }
-}
-//start timer
-  function startTimer2(){
-  timeIDCountDown=setInterval(countDown2,1000)
-  }
+
 //event listerner
 start1.addEventListener("click",()=>{
   moveMole()
   startTimer()
-
+  player1.hitMole()
+})
+start2.addEventListener("click",()=>{
+  moveMole()
 })
