@@ -26,11 +26,6 @@ background-color: white;
   border:black solid 2px;
 
 }
-/* #timer{
-  text-align: center;
-  border:solid pink 1px;
-  margin-top:10%;
-} */
 #totoroimg{
   max-height:120px;
   width:auto;
@@ -38,15 +33,15 @@ background-color: white;
 h1 {
   font-size: 50px;
 }
-.players,.player1,.player2,.playerscores{
+.players,.player1,.player2,.playerscores,.startbuttons,.startarrows{
   display: flex;
   justify-content: space-around;
   border:solid green 3px;
 }
 
 #player1score,#player2score{
-padding-left: 70px;
-  border:solid pink 1px;
+padding-right:150px;
+ border:solid pink 1px;
 
 }
 .player{
@@ -59,7 +54,7 @@ padding-left: 70px;
   text-align: center;
   margin:auto;
 }
-#start{
+.startbutton{
   height:50px;
   width:250px;
   border:solid pink 1px;
