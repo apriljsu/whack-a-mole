@@ -13,11 +13,11 @@ body {
   }
 
 .hole {
-border: solid pink 1px;
+/* border: solid pink 1px; */
 height:100px;
 width:200px;
 border-radius: 50%;
-background-color: brown;
+background-color: white;
 }
 .container{
   display: flex;
@@ -38,17 +38,22 @@ background-color: brown;
 h1 {
   font-size: 50px;
 }
-.players,.player1,.player2{
+.players,.player1,.player2,.playerscores{
   display: flex;
   justify-content: space-around;
   border:solid green 3px;
 }
 
+#player1score,#player2score{
+padding-left: 70px;
+  border:solid pink 1px;
+
+}
 .player{
   height:50px;
   width:250px;
   border:solid pink 1px;
-  background-color: white;
+  background-color: brown;
   border-radius: 50%;
   padding-top: 30px;
   text-align: center;
@@ -91,5 +96,8 @@ max-height: 50px;
 padding-top: 13px;
 }
 .mole{
-  background-color: blue;
+  background-image: url("/img/mole.gif");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }
