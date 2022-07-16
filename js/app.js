@@ -7,7 +7,7 @@ const score=document.querySelector("#score")
 //game objects
 //declare global variables
 let timer=11
-//create random hole function for mole to appear
+//create function to select random hole for mole to appear
 function randomHole(){
   //make sure no mole class was added to any hole
   holes.forEach(
@@ -17,7 +17,10 @@ function randomHole(){
 let randomHole=holes[Math.floor(Math.random()*9)]
 randomHole.classList.add("mole")
 }
-randomHole()
+//move Mole
+function moveMole(){
+  timeIDMoveMole=setInterval(randomHole,500)
+}
 //create timer function
 function countDown(){
 timer--
