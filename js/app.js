@@ -12,11 +12,14 @@ const arrow2=document.querySelector("#arrow2")
 const restart=document.querySelector("#restart")
 const cursor=document.querySelector(".cursor")
 const cursorID=document.querySelector("#cursor")
+//audio
+const sound=new Audio("img/smack.mp3")
 //declare global variables
 let hitHole=null
 let timeIDMoveMole=null
 let timeIDCountDown=null
 let currentPlayer;
+
 
 class player{
   constructor(timer,currentScore,playerNum){
@@ -103,6 +106,7 @@ hole.addEventListener("mousedown",
 ()=>{
 if(hole.id==hitHole){
 hole.classList.add("plus10")
+sound.play()
 currentPlayer.hitMole()
   }
   setTimeout(()=>{hole.classList.remove("plus10")},200)//remove score img after showing
