@@ -87,7 +87,7 @@ function randomHole(){
     console.log(player2.currentScore)
     second.innerText="00"
     arrow1.src="img/arrowplaceholder.png"
-    arrow2.src="img/arrow.png"
+    arrow2.src="img/arrow.gif"
 
   }else
   if(timer>0 && timer<10){
@@ -138,7 +138,7 @@ restart.addEventListener("click",()=>{
   player1.timer=10
   player2.timer=10
   arrow2.src="img/arrowplaceholder.png"
-  arrow1.src="img/arrow.png"
+  arrow1.src="img/arrow.gif"
 })
 //cursor
 window.addEventListener("mousemove",(e)=>{

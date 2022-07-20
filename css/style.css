@@ -10,11 +10,9 @@ body {
   width:750px;
   height:600px;
   justify-content: space-between;
-  border:black solid 2px;
   }
 
 .hole {
-border: solid pink 1px;
 height:100px;
 width:200px;
 border-radius: 100%;
@@ -22,18 +20,11 @@ background-color: white;
 box-shadow: inset 0 10px 0 7px grey;
 margin-left: 20px;
 }
-.placeholder{
-border: solid pink 1px;
-height:100px;
-width:100px;
-}
 
-.container{
+.gridcontainer{
   display: flex;
   justify-content: center;
   align-items: center;
-  border:black solid 2px;
-
 }
 #totoroimg{
   max-height:120px;
@@ -42,21 +33,22 @@ width:100px;
 h1 {
   font-size: 50px;
 }
-.players,.player1,.player2,.scoreboard,.startbuttons,.startarrows{
+.players,.player1,.player2,.startbuttons,.startarrows{
   display: flex;
   justify-content: space-around;
-  border:solid green 3px;
+  margin-bottom: 20px;
+}
+.scoreboard{
+  margin-left: 13%;
+  width:74%;
+  display: flex;
+  justify-content:space-around;
+  margin-bottom: 20px;
 }
 
-#player1score,#player2score{
-padding-right:150px;
- border:solid pink 1px;
-
-}
 .player{
   height:50px;
   width:250px;
-  border:solid pink 1px;
   background-color: brown;
   border-radius: 50%;
   padding-top: 30px;
@@ -66,7 +58,6 @@ padding-right:150px;
 .startbutton{
   height:40px;
   width:150px;
-  border:solid pink 1px;
   background-color: orange;
   border-radius: 50%;
   padding-top: 30px;
@@ -76,20 +67,20 @@ padding-right:150px;
 #restart{
   height:40px;
   width:150px;
-  border:solid pink 1px;
   background-color: orange;
   border-radius: 50%;
   padding-top: 30px;
   text-align: center;
-  margin:auto;}
+  margin:auto;
+}
 
-.display{
+.displaytimer{
 max-width: 200px;
-border:solid orange 2px;
 background-color: green;
 padding-right: 50px;
 padding-bottom: 20px;
-margin:auto;
+/* margin:auto;
+margin-bottom: 40px; */
 }
 #hammerimg1,#hammerimg2,#timerimg {
   max-height: 50px;
@@ -98,9 +89,8 @@ margin:auto;
   /* border:solid purple 2px; */
 }
 #arrow1,#arrow2{
-border:solid purple 2px;
-max-height: 50px;
-padding-top: 13px;
+max-height: 100px;
+margin-right: 50px;
 }
 .mole{
   background-image: url("/img/mole.gif");
@@ -116,7 +106,6 @@ background-position: right;
 
 }
 .cursor{
-  border:solid purple 2px;
   height:100px;
   width: 100px;
   position: absolute;
