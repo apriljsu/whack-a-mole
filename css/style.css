@@ -33,7 +33,7 @@ background-color: white;
 h1 {
   font-size: 50px;
 }
-.players,.player1,.player2,.playerscores,.startbuttons,.startarrows{
+.players,.player1,.player2,.scoreboard,.startbuttons,.startarrows{
   display: flex;
   justify-content: space-around;
   border:solid green 3px;
@@ -55,22 +55,14 @@ padding-right:150px;
   margin:auto;
 }
 .startbutton{
-  height:50px;
-  width:250px;
+  height:40px;
+  width:200px;
   border:solid pink 1px;
   background-color: orange;
   border-radius: 50%;
   padding-top: 30px;
   text-align: center;
   margin:auto;
-}
-.display_container{
-  color:yellow;
-  font-size: 30px;
-  padding:40px;
-  display: flex;
-  justify-content: center;
-  border:solid red 2px;
 }
 .display{
 border:solid orange 2px;
@@ -79,7 +71,7 @@ padding-right: 50px;
 padding-bottom: 15px;
 margin-right: 30px;
 }
-#hammerimg,#timerimg {
+#hammerimg1,#hammerimg2,#timerimg {
   max-height: 50px;
   width: auto;
   padding-left: 10px;
@@ -95,4 +87,11 @@ padding-top: 13px;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
+}
+.plus10{
+background-image: url("/img/plus10Box.jpeg");
+background-repeat:no-repeat;
+background-size: 100px 50px;
+background-position: right top;
+
 }

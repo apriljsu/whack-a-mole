@@ -5,9 +5,8 @@ const start2=document.querySelector("#start2")
 const holes=document.querySelectorAll(".hole")
 const mole=document.querySelector(".mole")
 const second=document.querySelector("#second")
-const score=document.querySelector("#score")
-const player1score=document.querySelector("#player1score")
-const player2score=document.querySelector("#player2score")
+const score1=document.querySelector("#score1")
+const score2=document.querySelector("#score2")
 const arrow1=document.querySelector("#arrow1")
 const arrow2=document.querySelector("#arrow2")
 
@@ -15,30 +14,34 @@ const arrow2=document.querySelector("#arrow2")
 let hitHole=null
 let timeIDMoveMole=null
 let timeIDCountDown=null
+let currentPlayer;
 
 class player{
-  constructor(timer,currentScore){
+  constructor(timer,currentScore,playerNum){
     this.timer=timer
     this.currentScore=currentScore
+    this.playerNum=playerNum
   }
   hitMole(){
-    holes.forEach(hole=> {
-        hole.addEventListener("click",
-        ()=>{
-          if(hole.id===hitHole){
-            this.currentScore++
-            score.innerText=this.currentScore
-            hole.classList.remove("mole")//if a mole got hit, remove img
-            hitHole=null
-          }
-        }
-      )
+    console.log("hitmole")
+    this.currentScore=this.currentScore+10
+    console.log(this.currentScore)
+    console.log(this.playerNum)
+    if(this.playerNum===1){
+      console.log("player1")
+      score1.innerText=this.currentScore
+
+    }else{
+      console.log("player2")
+      score2.innerText=this.currentScore
+
     }
-  )
   }
 }
-const player1= new player(10,0)
-const player2= new player(10,0)
+
+const player1= new player(10,0,1)
+const player2= new player(10,0,2)
+
   //create function to select random hole for mole to appear
 function randomHole(){
     //make sure no mole class was added to any hole
@@ -58,13 +61,13 @@ function randomHole(){
   //create timer function
   function countDown(newPlayer){
   newPlayer.timer--
-  console.log(newPlayer.timer)
   if(newPlayer.timer<=0){
     clearInterval(timeIDCountDown)
     clearInterval(timeIDMoveMole)
-    alert("time is up")
+    alert(`Time is up! Your final score is ${newPlayer.currentScore}`)//how did this work??
     second.innerText="00"
-    player1score.innerText="Final Score: "+newPlayer.currentScore//how to add newplayer in this
+    arrow1.src="img/arrowplaceholder.png"
+    arrow2.src="img/arrow.png"
 
   }else
   if(timer>0 && timer<10){
@@ -74,16 +77,36 @@ function randomHole(){
   }
 }
 //start timer
-  function startTimer(){
-  timeIDCountDown=setInterval(countDown,1000)
+  function startTimer(newPlayer){
+  timeIDCountDown=setInterval(countDown,1000,newPlayer)//doesnt apply to a player
   }
-
+//hit moles
+holes.forEach(hole=> {
+hole.addEventListener("click",
+()=>{
+if(hole.id==hitHole){
+hole.classList.add("plus10")
+console.log("molehit")
+currentPlayer.hitMole()
+  }
+  setTimeout(()=>{hole.classList.remove("plus10")},1000)//remove score img after showing
+  hole.classList.remove("mole")//if a mole got hit, remove img
+  hitHole=null
+}
+)
+}
+)
 //event listerner
 start1.addEventListener("click",()=>{
   moveMole()
-  startTimer()
-  player1.hitMole()
+  startTimer(player1)
+  currentPlayer=player1
+  // player1.hitMole()
 })
+
 start2.addEventListener("click",()=>{
   moveMole()
-})
+  startTimer(player2)
+  currentPlayer=player2
+  // player2.hitMole()
+  })
