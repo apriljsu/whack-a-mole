@@ -10,6 +10,8 @@ const score2=document.querySelector("#score2")
 const arrow1=document.querySelector("#arrow1")
 const arrow2=document.querySelector("#arrow2")
 const restart=document.querySelector("#restart")
+const cursor=document.querySelector(".cursor")
+const cursorID=document.querySelector("#cursor")
 //declare global variables
 let hitHole=null
 let timeIDMoveMole=null
@@ -67,7 +69,7 @@ function randomHole(){
     )
     clearInterval(timeIDCountDown)
     clearInterval(timeIDMoveMole)
-    alert(`Time is up! Your final score is ${newPlayer.currentScore}`)
+      alert(`Time is up! Your final score is ${newPlayer.currentScore}`)
     console.log(newPlayer.playerNum)
     if(newPlayer.playerNum===2 && player1.currentScore>player2.currentScore){
       alert("Player1 is the winner for this round!")
@@ -97,7 +99,7 @@ function randomHole(){
   }
 //hit moles
 holes.forEach(hole=> {
-hole.addEventListener("click",
+hole.addEventListener("mousedown",
 ()=>{
 if(hole.id==hitHole){
 hole.classList.add("plus10")
@@ -111,6 +113,7 @@ currentPlayer.hitMole()
 }
 )
 //event listerner
+//start button
 start1.addEventListener("click",()=>{
   moveMole()
   startTimer(player1)
@@ -118,10 +121,11 @@ start1.addEventListener("click",()=>{
   })
 
 start2.addEventListener("click",()=>{
-  moveMole()
+    moveMole()
   startTimer(player2)
   currentPlayer=player2
     })
+//restart button
 restart.addEventListener("click",()=>{
   player1.currentScore=0
   player2.currentScore=0
@@ -131,4 +135,16 @@ restart.addEventListener("click",()=>{
   player2.timer=10
   arrow2.src="img/arrowplaceholder.png"
   arrow1.src="img/arrow.png"
+})
+//cursor
+window.addEventListener("mousemove",(e)=>{
+  cursor.style.top=e.pageY+"px"
+  cursor.style.left=e.pageX+"px"
+})
+
+window.addEventListener("mousedown",()=>{
+  cursor.classList.add("rotate")
+})
+window.addEventListener("mouseup",()=>{
+  cursor.classList.remove("rotate")
 })
