@@ -13,7 +13,7 @@ const restart=document.querySelector("#restart")
 const cursor=document.querySelector(".cursor")
 const cursorID=document.querySelector("#cursor")
 //audio
-const sound=new Audio("img/smack.mp3")
+const sound=new Audio("../img/smack.mp3")
 //declare global variables
 let hitHole=null
 let timeIDMoveMole=null
@@ -86,8 +86,8 @@ function randomHole(){
     console.log(player1.currentScore)
     console.log(player2.currentScore)
     second.innerText="00"
-    arrow1.src="img/arrowplaceholder.png"
-    arrow2.src="img/arrow.gif"
+    arrow1.src="../img/arrowplaceholder.png"
+    arrow2.src="../img/arrow.gif"
 
   }else
   if(timer>0 && timer<10){
@@ -118,27 +118,27 @@ currentPlayer.hitMole()
 )
 //event listerner
 //start button
-start1.addEventListener("click",()=>{
+start1.addEventListener("mousedown",()=>{
   moveMole()
   startTimer(player1)
   currentPlayer=player1
   })
 
-start2.addEventListener("click",()=>{
+start2.addEventListener("mousedown",()=>{
     moveMole()
   startTimer(player2)
   currentPlayer=player2
     })
 //restart button
-restart.addEventListener("click",()=>{
+restart.addEventListener("mousedown",()=>{
   player1.currentScore=0
   player2.currentScore=0
   score1.innerText=player1.currentScore
   score2.innerText=player2.currentScore
   player1.timer=10
   player2.timer=10
-  arrow2.src="img/arrowplaceholder.png"
-  arrow1.src="img/arrow.gif"
+  arrow2.src="../img/arrowplaceholder.png"
+  arrow1.src="../img/arrow.gif"
 })
 //cursor
 window.addEventListener("mousemove",(e)=>{

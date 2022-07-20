@@ -1,5 +1,5 @@
 body {
-  background: url("/img/farm.webp") no-repeat center center fixed;
+  background: url("../img/farm.webp") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
@@ -32,6 +32,7 @@ margin-left: 20px;
   }
 h1 {
   font-size: 50px;
+    margin-bottom: 0
 }
 .players,.player1,.player2,.startbuttons,.startarrows{
   display: flex;
@@ -90,29 +91,29 @@ margin-bottom: 40px; */
 }
 #arrow1,#arrow2{
 max-height: 100px;
-margin-right: 50px;
+margin-right: 10px;
 }
 .mole{
-  background-image: url("/img/mole.gif");
+  background-image: url("../img/mole.gif");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
 }
 .plus10{
-background-image: url("/img/plus10Box.jpeg");
+background-image: url("../img/plus10Box.jpeg");
 background-repeat:no-repeat;
 background-size: 100px 50px;
-background-position: right;
+background-position: left;
 
 }
 .cursor{
   height:100px;
   width: 100px;
   position: absolute;
-  background-image: url("/img/hammer.webp");
+  background-image: url("../img/hammer.webp");
   background-repeat: no-repeat;
   background-size:70% 70%;
-  transform:translate(-20%,-20%);/*put the cursor above hammer img*/
+  transform:translate(-40%,-40%);/*put the cursor above hammer img*/
   pointer-events: none;
 }
 .cursor.rotate{
