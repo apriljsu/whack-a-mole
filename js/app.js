@@ -9,7 +9,7 @@ const score1=document.querySelector("#score1")
 const score2=document.querySelector("#score2")
 const arrow1=document.querySelector("#arrow1")
 const arrow2=document.querySelector("#arrow2")
-
+const restart=document.querySelector("#restart")
 //declare global variables
 let hitHole=null
 let timeIDMoveMole=null
@@ -61,10 +61,25 @@ function randomHole(){
   //create timer function
   function countDown(newPlayer){
   newPlayer.timer--
-  if(newPlayer.timer<=0){
+  if(newPlayer.timer<0){
+    holes.forEach(
+      hole => {hole.classList.remove("mole")}
+    )
     clearInterval(timeIDCountDown)
     clearInterval(timeIDMoveMole)
-    alert(`Time is up! Your final score is ${newPlayer.currentScore}`)//how did this work??
+    alert(`Time is up! Your final score is ${newPlayer.currentScore}`)
+    console.log(newPlayer.playerNum)
+    if(newPlayer.playerNum===2 && player1.currentScore>player2.currentScore){
+      alert("Player1 is the winner for this round!")
+    }else
+    if(newPlayer.playerNum===2  && player1.currentScore<player2.currentScore) {
+      alert("Player2 is the winner for this round!")
+    }else
+    if(newPlayer.playerNum===2  && player1.currentScore===player2.currentScore) {
+      alert("it's a draw for this round!")
+    }
+    console.log(player1.currentScore)
+    console.log(player2.currentScore)
     second.innerText="00"
     arrow1.src="img/arrowplaceholder.png"
     arrow2.src="img/arrow.png"
@@ -86,10 +101,9 @@ hole.addEventListener("click",
 ()=>{
 if(hole.id==hitHole){
 hole.classList.add("plus10")
-console.log("molehit")
 currentPlayer.hitMole()
   }
-  setTimeout(()=>{hole.classList.remove("plus10")},1000)//remove score img after showing
+  setTimeout(()=>{hole.classList.remove("plus10")},200)//remove score img after showing
   hole.classList.remove("mole")//if a mole got hit, remove img
   hitHole=null
 }
@@ -101,12 +115,20 @@ start1.addEventListener("click",()=>{
   moveMole()
   startTimer(player1)
   currentPlayer=player1
-  // player1.hitMole()
-})
+  })
 
 start2.addEventListener("click",()=>{
   moveMole()
   startTimer(player2)
   currentPlayer=player2
-  // player2.hitMole()
-  })
+    })
+restart.addEventListener("click",()=>{
+  player1.currentScore=0
+  player2.currentScore=0
+  score1.innerText=player1.currentScore
+  score2.innerText=player2.currentScore
+  player1.timer=10
+  player2.timer=10
+  arrow2.src="img/arrowplaceholder.png"
+  arrow1.src="img/arrow.png"
+})
