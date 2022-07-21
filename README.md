@@ -19,6 +19,6 @@ An online version of the classic whack a mole game that you will find at an arca
  ![5](https://user-images.githubusercontent.com/105821806/180294711-c5b7da41-4717-4ac5-b87b-7c7a76de9273.png)
 
 6. player has to click on restart button to reset the game. 
-7. 
+
 ### Forthcoming features
 1. multiple moles with different score value
