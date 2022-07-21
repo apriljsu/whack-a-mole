@@ -20,7 +20,7 @@ let timeIDMoveMole=null
 let timeIDCountDown=null
 let currentPlayer;
 
-
+//set up player class
 class player{
   constructor(timer,currentScore,playerNum){
     this.timer=timer
