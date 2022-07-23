@@ -20,5 +20,28 @@ An online version of the classic whack a mole game that you will find at an arca
 
 6. player has to click on restart button to reset the game. 
 
+### Technologies used
+HTML
+- google fonts
+- id & class
+
+CSS
+- flexbox
+- transform
+- box shadow
+
+JS
+- class
+- Math.random
+- if statement
+- loop
+- setInverval, setTimeout, ClearInterval
+- alert
+- event listener
+- function
+- DOM maniputation
+
+
 ### Forthcoming features
 1. multiple moles with different score value
+2. different speed choices
